@@ -1,0 +1,19 @@
+.tg_btn {
+	display: inline-block;
+	border-radius: 3px;
+	background-image: none;
+	border: 1px solid transparent;
+	padding: 5px 12px;
+	min-width: 80px;
+	touch-action: manipulation;
+	user-select: none;
+	cursor: pointer;
+
+	/* Стили шрифта */
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 20px;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+}

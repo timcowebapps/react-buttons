@@ -1,0 +1,21 @@
+.tg_btn_default {
+	color: #222;
+	background-color: #efefef;
+	border-color: darken(#efefef, 5%);
+
+	&:hover {
+		background-color: darken(#efefef, 5%);
+		border-color: darken(#efefef, 17%);
+	}
+}
+
+.tg_btn_primary {
+	color: #fff;
+	background-color: #0d93c3;
+	border-color: darken(#0d93c3, 5%);
+
+	&:hover {
+		background-color: darken(#0d93c3, 5%);
+		border-color: darken(#0d93c3, 17%);
+	}
+}
