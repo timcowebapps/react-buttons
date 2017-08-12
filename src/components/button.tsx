@@ -13,18 +13,31 @@ import { Classes } from 'timcowebapps-react-utils';
 import { IButtonProps } from './buttonProps';
 
 const Button: React.StatelessComponent<IButtonProps> = (props: IButtonProps) => {
-	const {
-		schema
-	} = props;
-	
+	let htmlAttrs = function (properties: any): any {
+		let result: any = {}
+		if (properties.tag === "a") {
+			result.href = properties.to || "/";
+		}
+		else if (properties.tag === "button") {
+			result.type = properties.type || "button";
+		}
+
+		return result;
+	};
+
 	return React.createElement(
-		schema.properties.tag,
-		{ className: Classes.combine(schema.properties.classes) },
+		props.schema.properties.tag,
+		{
+			...htmlAttrs(props.schema.properties),
+			onClick: props.onClick,
+			className: Classes.combine(props.schema.properties.classes)
+		},
 		props.children
 	);
 }
 
 Button.propTypes = {
+	onClick: PropTypes.func,
 	children: PropTypes.oneOfType([
 		PropTypes.arrayOf(PropTypes.element),
 		PropTypes.string

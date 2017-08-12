@@ -7,9 +7,14 @@
 ### API
 
 ````jsx
-var btnStyles: any = require('timcogroup-react-buttons-dir/button.scss');
+var btnStyles: any = require('timcowebapps-react-buttons-dir/button.scss');
 
-<Button schema={{ properties: { tag: "button", classes: btnStyles.tg_btn } }}>Button content</Button>
+<Button schema={{
+	properties: {
+		tag: "button",
+		classes: btnStyles.tg_btn
+	}
+}}>Button content</Button>
 ````
 
 | Property       | Type               | Default     | Description |

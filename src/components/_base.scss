@@ -1,8 +1,8 @@
 .tg_btn {
 	display: inline-block;
-	border-radius: 3px;
 	background-image: none;
 	border: 1px solid transparent;
+	@include border-radius(3px);
 	padding: 5px 12px;
 	min-width: 80px;
 	touch-action: manipulation;
@@ -10,10 +10,17 @@
 	cursor: pointer;
 
 	/* Стили шрифта */
+	font-family: "Arial", sans-serif;
 	font-size: 13px;
 	font-weight: normal;
 	line-height: 20px;
 	text-align: center;
+	text-decoration: none;
 	white-space: nowrap;
 	vertical-align: middle;
+}
+
+.tg_btn_block {
+	display: block;
+	width: 100%;
 }

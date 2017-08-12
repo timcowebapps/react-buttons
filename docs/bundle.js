@@ -10286,7 +10286,7 @@ var btnStyles = __webpack_require__(190);
 var App = function (props) {
     return (React.createElement("div", { style: { padding: '20px 20px 0' } },
         React.createElement(button_1.default, { schema: { properties: { tag: "button", classes: [btnStyles.tg_btn, btnStyles.tg_btn_default] } } }, "Default Button"),
-        React.createElement(button_1.default, { schema: { properties: { tag: "button", classes: [btnStyles.tg_btn, btnStyles.tg_btn_primary] } } }, "Primary Button")));
+        React.createElement(button_1.default, { schema: { properties: { tag: "a", to: "/", classes: [btnStyles.tg_btn, btnStyles.tg_btn_primary] } } }, "Primary Button")));
 };
 ReactDOM.render(React.createElement(App, null), document.getElementById('container'));
 
@@ -22403,15 +22403,33 @@ module.exports = ReactDOMInvalidARIAHook;
 
 "use strict";
 
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(50);
 var PropTypes = __webpack_require__(186);
 var timcowebapps_react_utils_1 = __webpack_require__(188);
 var Button = function (props) {
-    var schema = props.schema;
-    return React.createElement(schema.properties.tag, { className: timcowebapps_react_utils_1.Classes.combine(schema.properties.classes) }, props.children);
+    var htmlAttrs = function (properties) {
+        var result = {};
+        if (properties.tag === "a") {
+            result.href = properties.to || "/";
+        }
+        else if (properties.tag === "button") {
+            result.type = properties.type || "button";
+        }
+        return result;
+    };
+    return React.createElement(props.schema.properties.tag, __assign({}, htmlAttrs(props.schema.properties), { onClick: props.onClick, className: timcowebapps_react_utils_1.Classes.combine(props.schema.properties.classes) }), props.children);
 };
 Button.propTypes = {
+    onClick: PropTypes.func,
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.element),
         PropTypes.string
@@ -22574,8 +22592,8 @@ var Classes;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"tg_btn":"button-1-iwo","tg_btn_default":"button-1jpy-","tg_btn_primary":"button-39HQq"};
+module.exports = {"tg_btn":"button-1-iwo","tg_btn_block":"button-1dcoz","tg_btn_default":"button-1jpy-","tg_btn_primary":"button-39HQq"};
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.js.map?b2f52f623fca9c9d84c3
+//# sourceMappingURL=bundle.js.map?06ed50e4c248a9ddad53

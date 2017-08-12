@@ -1,6 +1,6 @@
 {
-	"name": "timcogroup-react-buttons",
-	"version": "0.1.0",
+	"name": "timcowebapps-react-buttons",
+	"version": "0.1.1",
 	"description": "Микрокомпонент базовой кнопки.",
 	"author": "Victor Timoshin <victor-timoshin@hotmail.com>",
 	"license": "MIT",
@@ -13,12 +13,13 @@
 		"lib"
 	],
 	"main": "./lib/button.js",
-	"types": "./lib/button/button.d.ts",
+	"types": "./lib/button.d.ts",
 	"scripts": {
 		"prepublish": "npm run build-components",
-		"clean-examples": "rm -f docs/*",
-		"build-examples": "npm run clean-examples && cd examples; webpack",
-		"start-examples": "npm run clean-examples && cd examples; webpack-dev-server --hot --inline --host 0.0.0.0 --port 2283 --content-base ../docs",
+		"preclean-examples": "rm -f docs/*",
+		"postclean-examples": "rm -f src/components/*.d.ts",
+		"build-examples": "npm run preclean-examples && cd examples; webpack && npm run postclean-examples",
+		"start-examples": "npm run preclean-examples && cd examples; webpack-dev-server --hot --inline --host 0.0.0.0 --port 2283 --content-base ../docs",
 		"copy-styles": "cp src/components/_base.scss lib/_base.scss && cp src/components/_variants.scss lib/_variants.scss && cp src/components/button.scss lib/button.scss",
 		"clean-components": "rm -f lib/*",
 		"build-components": "npm run clean-components && node webpack.config && npm run copy-styles",
