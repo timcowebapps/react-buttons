@@ -22,6 +22,8 @@ const Button: React.StatelessComponent<IButtonProps> = (props: IButtonProps) => 
 			result.type = properties.type || "button";
 		}
 
+		result.style = properties.style || null;
+
 		return result;
 	};
 

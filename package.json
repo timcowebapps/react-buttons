@@ -4,6 +4,10 @@
 	"description": "Микрокомпонент базовой кнопки.",
 	"author": "Victor Timoshin <victor-timoshin@hotmail.com>",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/timcowebapps/react-buttons.git"
+	},
 	"keywords": [
 		"React",
 		"buttons"
@@ -20,7 +24,7 @@
 		"postclean-examples": "rm -f src/components/*.d.ts",
 		"build-examples": "npm run preclean-examples && cd examples; webpack && npm run postclean-examples",
 		"start-examples": "npm run preclean-examples && cd examples; webpack-dev-server --hot --inline --host 0.0.0.0 --port 2283 --content-base ../docs",
-		"copy-styles": "cp src/components/_base.scss lib/_base.scss && cp src/components/_variants.scss lib/_variants.scss && cp src/components/button.scss lib/button.scss",
+		"copy-styles": "cp src/components/*.scss lib/",
 		"clean-components": "rm -f lib/*",
 		"build-components": "npm run clean-components && node webpack.config && npm run copy-styles",
 		"test": "echo \"Error: no test specified\" && exit 1"

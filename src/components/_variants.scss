@@ -1,23 +1,55 @@
-.tg_btn_default {
-	color: #222;
+.btn_default {
+	color: #666;
 	background-color: $gray;
 	@include transition(background-color .2s $easing);
-	border-color: darken($gray-dark, 3%);
-	box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, .1);
+
+	&.btn_bordred {
+		//border-color: darken($gray-dark, 3%);
+		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
+	}
+
+	&.btn_rounded {
+		@include border-radius(2em/*32px*/);
+	}
 
 	&:hover {
 		background-color: $gray-dark;
 	}
 }
 
-.tg_btn_primary {
+.btn_outline_default {
+	color: darken($gray-dark, 3%);
+	background-color: transparent;
+	border-color: $gray-dark;
+}
+
+.btn_primary {
 	color: #fff;
 	background-color: $blue;
 	@include transition(background-color .2s $easing);
-	border-color: darken($blue-dark, 3%);
-	box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, .1);
+
+	&.btn_bordred {
+		//border-color: darken($blue-dark, 3%);
+		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
+	}
+
+	&.btn_rounded {
+		@include border-radius(2em/*32px*/);
+	}
 
 	&:hover {
 		background-color: $blue-dark;
 	}
 }
+
+.btn_outline_primary {
+	color: darken($blue-dark, 3%);
+	background-color: transparent;
+	border-color: $blue-dark;
+}
+
+.btn_success {}
+.btn_info {}
+.btn_warning {}
+.btn_danger {}
+.btn_inverse {}
