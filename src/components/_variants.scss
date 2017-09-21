@@ -9,11 +9,12 @@
 	}
 
 	&.btn_rounded {
-		@include border-radius(2em/*32px*/);
+		@include border-radius(1.875em/*30px*/);
 	}
 
 	&:hover {
 		background-color: $gray-dark;
+		background-color: darken($gray, 7%);
 	}
 }
 
@@ -25,7 +26,9 @@
 
 .btn_primary {
 	color: #fff;
-	background-color: $blue;
+	//background-color: $blue;
+	background-color: hsla(203, 52%, 41%, 1);
+
 	@include transition(background-color .2s $easing);
 
 	&.btn_bordred {
@@ -39,17 +42,92 @@
 
 	&:hover {
 		background-color: $blue-dark;
+		//background-color: desaturate(darken($blue, 7%), 8%);
+		background-color: desaturate(darken(complement($yellow), 7%), 20%);
 	}
 }
 
 .btn_outline_primary {
-	color: darken($blue-dark, 3%);
-	background-color: transparent;
-	border-color: $blue-dark;
+	color: #666;
+	background: rgba(0, 0, 0, .2);
+	border: 0;
+
+	&:hover {
+		background-color: rgba(0, 0, 0, .3);
+	}
+
+	&:before {
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		bottom: 1px;
+		left: 1px;
+		content: '';
+		border-radius: 2px;
+		background: #fff;
+	}
 }
 
-.btn_success {}
+.btn_success {
+	color: #fff;
+	background-color: $green;
+	@include transition(background-color .2s $easing);
+
+	&.btn_bordred {
+		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
+	}
+
+	&:hover {
+		background-color: $green-dark;
+		background-color: darken($green, 7%);
+	}
+}
+
 .btn_info {}
-.btn_warning {}
-.btn_danger {}
-.btn_inverse {}
+
+.btn_warning {
+	color: #043341;
+	background-color: complement(#3376a0);
+	background-color: adjust-hue(#3376a0, 212%);
+	
+	background-color: saturate(adjust-hue(#3376a0, 212%), 80%);
+
+	//background-color: $yellow;
+	@include transition(background-color .2s $easing);
+
+	&.btn_bordred {
+		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
+	}
+
+	&:hover {
+		background-color: desaturate(darken($yellow, 7%), 10%);
+	}
+}
+
+.btn_danger {
+	color: #fff;
+	background-color: $red;
+	@include transition(background-color .2s $easing);
+
+	&.btn_bordred {
+		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
+	}
+
+	&:hover {
+		background-color: darken($red, 7%);
+	}
+}
+
+.btn_inverse {
+	color: #fff;
+	background-color: $black;
+	@include transition(background-color .2s $easing);
+
+	&.btn_bordred {
+		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
+	}
+
+	&:hover {
+		background-color: darken($black, 7%);
+	}
+}

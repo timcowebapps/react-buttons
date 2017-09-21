@@ -6,25 +6,28 @@
 
 ### Установка
 
-```
-npm i -S timcowebapps-react-buttons
+```console
+$ npm i -S timcowebapps-react-buttons
 ```
 
 ### Настройка webpack
 
-```
-resolve: {
-	extensions: [".js", ".jsx", ".ts", ".tsx"],
-	alias: {
-		'dir': path.resolve(__dirname, 
-			'node_modules', 'timcogroup-rc-datadisplay', 'lib')
+```js
+{
+	// ...
+	resolve: {
+		alias: {
+			'dir': path.resolve(__dirname, 
+				'node_modules', 'timcogroup-rc-datadisplay', 'lib')
+		}
 	}
+	// ...
 }
 ```
 
-### API
+### Применение
 
-````jsx
+```jsx
 import Button from 'timcowebapps-react-buttons';
 const styles: any = require('dir/button.scss');
 
@@ -34,7 +37,7 @@ const styles: any = require('dir/button.scss');
 		classes: styles.btn
 	}
 }}>Button content</Button>
-````
+```
 
 | Property       | Type               | Default     | Description |
 | :------------- | :----------------- | :---------- | :---------- |

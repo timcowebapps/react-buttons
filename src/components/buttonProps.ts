@@ -1,8 +1,6 @@
 'use strict';
 
-/**
- * Внешние зависимости.
- */
+/* Внешние зависимости. */
 import * as React from 'react';
 import { IJsonSchema } from 'timcowebapps-react-utils';
 

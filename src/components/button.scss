@@ -1,5 +1,9 @@
+@import '~timcowebapps-scss-dir/mixins/_border-radius.scss';
+@import '~timcowebapps-scss-dir/mixins/_box-sizing.scss';
+@import '~timcowebapps-scss-dir/mixins/_transition.scss';
+@import '~timcowebapps-scss-dir/mixins/_box-shadow.scss';
+
 @import './_variables';
-@import './_mixins';
 @import './_base';
 @import './_variants';
 @import './_size';

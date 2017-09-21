@@ -1,15 +1,12 @@
 'use strict';
 
-/**
- * Внешние зависимости.
- */
+/* Внешние зависимости. */
 import * as _ from 'lodash';
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { Classes } from 'timcowebapps-react-utils';
-/**
- * Внутренние зависимости.
- */
+
+/* Внутренние зависимости. */
 import { IButtonProps } from './buttonProps';
 
 const Button: React.StatelessComponent<IButtonProps> = (props: IButtonProps) => {
@@ -27,6 +24,22 @@ const Button: React.StatelessComponent<IButtonProps> = (props: IButtonProps) => 
 		return result;
 	};
 
+	let renderLabel = function (): any {
+		if (props.schema.items) {
+			let label: any = undefined;
+
+			if (Array.isArray(props.schema.items)) {
+				label = _.filter(props.schema.items, { id: 'label' })[0];
+			}
+			else {
+				label = props.schema.items;
+			}
+
+			return React.DOM.span({ className: label.properties.classes }, label.default.text)
+		}
+		else return props.children;
+	}
+
 	return React.createElement(
 		props.schema.properties.tag,
 		{
@@ -34,7 +47,7 @@ const Button: React.StatelessComponent<IButtonProps> = (props: IButtonProps) => 
 			onClick: props.onClick,
 			className: Classes.combine(props.schema.properties.classes)
 		},
-		props.children
+		renderLabel()
 	);
 }
 

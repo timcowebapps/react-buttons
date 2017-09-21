@@ -31,10 +31,74 @@ const App: React.StatelessComponent<any> = (props: any) => {
 				<p>
 					<Button schema={getJsonSchema([styles.btn_default, styles.btn_lg])}>Large</Button>
 					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_lg])}>Large</Button>
+					<Button schema={getJsonSchema([styles.btn_success, styles.btn_lg])}>Large</Button>
+					<Button schema={getJsonSchema([styles.btn_warning, styles.btn_lg])}>Large</Button>
+					<Button schema={getJsonSchema([styles.btn_danger, styles.btn_lg])}>Large</Button>
+					<Button schema={getJsonSchema([styles.btn_inverse, styles.btn_lg])}>Large</Button>
+				</p>
+				<p>
+					<Button schema={getJsonSchema([styles.btn_default])}>Medium</Button>
+					<Button schema={getJsonSchema([styles.btn_primary])}>Medium</Button>
+					<Button schema={getJsonSchema([styles.btn_success])}>Medium</Button>
+					<Button schema={getJsonSchema([styles.btn_warning])}>Medium</Button>
+					<Button schema={getJsonSchema([styles.btn_danger])}>Medium</Button>
+					<Button schema={getJsonSchema([styles.btn_inverse])}>Medium</Button>
+				</p>
+				<p>
+					<Button schema={getJsonSchema([styles.btn_default, styles.btn_sm])}>Small</Button>
+					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_sm])}>Small</Button>
+					<Button schema={getJsonSchema([styles.btn_success, styles.btn_sm])}>Small</Button>
+					<Button schema={getJsonSchema([styles.btn_warning, styles.btn_sm])}>Small</Button>
+					<Button schema={getJsonSchema([styles.btn_danger, styles.btn_sm])}>Small</Button>
+					<Button schema={getJsonSchema([styles.btn_inverse, styles.btn_sm])}>Small</Button>
+				</p>
+				<p>
+					<Button schema={getJsonSchema([styles.btn_default, styles.btn_xs])}>Extra small</Button>
+					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_xs])}>Extra small</Button>
+					<Button schema={getJsonSchema([styles.btn_success, styles.btn_xs])}>Extra small</Button>
+					<Button schema={getJsonSchema([styles.btn_warning, styles.btn_xs])}>Extra small</Button>
+					<Button schema={getJsonSchema([styles.btn_danger, styles.btn_xs])}>Extra small</Button>
+					<Button schema={getJsonSchema([styles.btn_inverse, styles.btn_xs])}>Extra small</Button>
+				</p>
+			</div>
 
+			<div style={{ padding: '20px 20px 0' }}>
+				<p>
 					<Button schema={getJsonSchema([styles.btn_default, styles.btn_lg, styles.btn_bordred])}>Large</Button>
 					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_lg, styles.btn_bordred])}>Large</Button>
+					<Button schema={getJsonSchema([styles.btn_success, styles.btn_lg, styles.btn_bordred])}>Large</Button>
+					<Button schema={getJsonSchema([styles.btn_warning, styles.btn_lg, styles.btn_bordred])}>Large</Button>
+					<Button schema={getJsonSchema([styles.btn_danger, styles.btn_lg, styles.btn_bordred])}>Large</Button>
+					<Button schema={getJsonSchema([styles.btn_inverse, styles.btn_lg, styles.btn_bordred])}>Large</Button>
+				</p>
+				<p>
+					<Button schema={getJsonSchema([styles.btn_default, styles.btn_bordred])}>Medium</Button>
+					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_bordred])}>Medium</Button>
+					<Button schema={getJsonSchema([styles.btn_success, styles.btn_bordred])}>Medium</Button>
+					<Button schema={getJsonSchema([styles.btn_warning, styles.btn_bordred])}>Medium</Button>
+					<Button schema={getJsonSchema([styles.btn_danger, styles.btn_bordred])}>Medium</Button>
+					<Button schema={getJsonSchema([styles.btn_inverse, styles.btn_bordred])}>Medium</Button>
+				</p>
+				<p>
+					<Button schema={getJsonSchema([styles.btn_default, styles.btn_sm, styles.btn_bordred])}>Small</Button>
+					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_sm, styles.btn_bordred])}>Small</Button>
+					<Button schema={getJsonSchema([styles.btn_success, styles.btn_sm, styles.btn_bordred])}>Small</Button>
+					<Button schema={getJsonSchema([styles.btn_warning, styles.btn_sm, styles.btn_bordred])}>Small</Button>
+					<Button schema={getJsonSchema([styles.btn_danger, styles.btn_sm, styles.btn_bordred])}>Small</Button>
+					<Button schema={getJsonSchema([styles.btn_inverse, styles.btn_sm, styles.btn_bordred])}>Small</Button>
+				</p>
+				<p>
+					<Button schema={getJsonSchema([styles.btn_default, styles.btn_xs, styles.btn_bordred])}>Extra small</Button>
+					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_xs, styles.btn_bordred])}>Extra small</Button>
+					<Button schema={getJsonSchema([styles.btn_success, styles.btn_xs, styles.btn_bordred])}>Extra small</Button>
+					<Button schema={getJsonSchema([styles.btn_warning, styles.btn_xs, styles.btn_bordred])}>Extra small</Button>
+					<Button schema={getJsonSchema([styles.btn_danger, styles.btn_xs, styles.btn_bordred])}>Extra small</Button>
+					<Button schema={getJsonSchema([styles.btn_inverse, styles.btn_xs, styles.btn_bordred])}>Extra small</Button>
+				</p>
+			</div>
 
+			<div style={{ padding: '20px 20px 0' }}>
+				<p>
 					<Button schema={getJsonSchema([styles.btn_default, styles.btn_lg, styles.btn_rounded])}>Large</Button>
 					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_lg, styles.btn_rounded])}>Large</Button>
 
@@ -45,12 +109,6 @@ const App: React.StatelessComponent<any> = (props: any) => {
 					<Button schema={getJsonSchema([styles.btn_outline_primary, styles.btn_lg, styles.btn_rounded])}>Large</Button>
 				</p>
 				<p>
-					<Button schema={getJsonSchema([styles.btn_default])}>Medium</Button>
-					<Button schema={getJsonSchema([styles.btn_primary])}>Medium</Button>
-
-					<Button schema={getJsonSchema([styles.btn_default, styles.btn_bordred])}>Medium</Button>
-					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_bordred])}>Medium</Button>
-
 					<Button schema={getJsonSchema([styles.btn_default, styles.btn_rounded])}>Medium</Button>
 					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_rounded])}>Medium</Button>
 
@@ -61,12 +119,6 @@ const App: React.StatelessComponent<any> = (props: any) => {
 					<Button schema={getJsonSchema([styles.btn_outline_primary, styles.btn_rounded])}>Medium</Button>
 				</p>
 				<p>
-					<Button schema={getJsonSchema([styles.btn_default, styles.btn_sm])}>Small</Button>
-					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_sm])}>Small</Button>
-			
-					<Button schema={getJsonSchema([styles.btn_default, styles.btn_sm, styles.btn_bordred])}>Small</Button>
-					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_sm, styles.btn_bordred])}>Small</Button>
-
 					<Button schema={getJsonSchema([styles.btn_default, styles.btn_sm, styles.btn_rounded])}>Small</Button>
 					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_sm, styles.btn_rounded])}>Small</Button>
 
@@ -77,12 +129,6 @@ const App: React.StatelessComponent<any> = (props: any) => {
 					<Button schema={getJsonSchema([styles.btn_outline_primary, styles.btn_sm, styles.btn_rounded])}>Small</Button>
 				</p>
 				<p>
-					<Button schema={getJsonSchema([styles.btn_default, styles.btn_xs])}>Extra small</Button>
-					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_xs])}>Extra small</Button>
-				
-					<Button schema={getJsonSchema([styles.btn_default, styles.btn_xs, styles.btn_bordred])}>Extra small</Button>
-					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_xs, styles.btn_bordred])}>Extra small</Button>
-
 					<Button schema={getJsonSchema([styles.btn_default, styles.btn_xs, styles.btn_rounded])}>Extra small</Button>
 					<Button schema={getJsonSchema([styles.btn_primary, styles.btn_xs, styles.btn_rounded])}>Extra small</Button>
 
@@ -95,7 +141,22 @@ const App: React.StatelessComponent<any> = (props: any) => {
 			</div>
 
 			<div style={{ padding: '20px 20px 0' }}>
-				<Button schema={{ properties: { tag: "button", classes: [styles.btn, styles.btn_default, styles.btn_block] } }}>Block</Button>
+				<Button schema={{
+					properties: {
+						tag: "button",
+						classes: [styles.btn, styles.btn_default, styles.btn_block]
+					},
+					items: [{
+						id: 'label',
+						default: {
+							text: "Block"
+						},
+						properties: {
+							classes: [styles.btn__label]
+						}
+					}]
+					
+				}} />
 			</div>
 		</div>
 	);
