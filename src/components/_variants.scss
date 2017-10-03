@@ -1,21 +1,32 @@
-.btn_default {
-	color: #666;
-	background-color: $gray;
-	@include transition(background-color .2s $easing);
+@mixin module($options: ()) {
+	$configuration: map-merge((
+		_color: black,
+		_background: white,
+		_transition: background-color .2s $easing
+	), $options);
+  
+	color: map-get($configuration, _color);
+	background-color: map-get($configuration, _background);
+	@include transition(map-get($configuration, _transition));
+
+	&:hover {
+		background-color: darken(map-get($configuration, _background), 7%);
+	}
 
 	&.btn_bordred {
-		//border-color: darken($gray-dark, 3%);
 		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
 	}
 
 	&.btn_rounded {
 		@include border-radius(1.875em/*30px*/);
 	}
+}
 
-	&:hover {
-		background-color: $gray-dark;
-		background-color: darken($gray, 7%);
-	}
+.btn_default {
+	@include module((
+		_color: #666,
+		_background: $gray
+	));
 }
 
 .btn_outline_default {
@@ -25,26 +36,10 @@
 }
 
 .btn_primary {
-	color: #fff;
-	//background-color: $blue;
-	background-color: hsla(203, 52%, 41%, 1);
-
-	@include transition(background-color .2s $easing);
-
-	&.btn_bordred {
-		//border-color: darken($blue-dark, 3%);
-		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
-	}
-
-	&.btn_rounded {
-		@include border-radius(2em/*32px*/);
-	}
-
-	&:hover {
-		background-color: $blue-dark;
-		//background-color: desaturate(darken($blue, 7%), 8%);
-		background-color: desaturate(darken(complement($yellow), 7%), 20%);
-	}
+	@include module((
+		_color: #fff,
+		_background: map-get($global-palette, blue-medium)
+	));
 }
 
 .btn_outline_primary {
@@ -69,65 +64,31 @@
 }
 
 .btn_success {
-	color: #fff;
-	background-color: $green;
-	@include transition(background-color .2s $easing);
-
-	&.btn_bordred {
-		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
-	}
-
-	&:hover {
-		background-color: $green-dark;
-		background-color: darken($green, 7%);
-	}
+	@include module((
+		_color: #fff,
+		_background: map-get($global-palette, green-medium)
+	));
 }
 
 .btn_info {}
 
 .btn_warning {
-	color: #043341;
-	background-color: complement(#3376a0);
-	background-color: adjust-hue(#3376a0, 212%);
-	
-	background-color: saturate(adjust-hue(#3376a0, 212%), 80%);
-
-	//background-color: $yellow;
-	@include transition(background-color .2s $easing);
-
-	&.btn_bordred {
-		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
-	}
-
-	&:hover {
-		background-color: desaturate(darken($yellow, 7%), 10%);
-	}
+	@include module((
+		_color: #043341,
+		_background: map-get($global-palette, yellow-medium)
+	));
 }
 
 .btn_danger {
-	color: #fff;
-	background-color: $red;
-	@include transition(background-color .2s $easing);
-
-	&.btn_bordred {
-		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
-	}
-
-	&:hover {
-		background-color: darken($red, 7%);
-	}
+	@include module((
+		_color: #fff,
+		_background: map-get($global-palette, red-medium)
+	));
 }
 
 .btn_inverse {
-	color: #fff;
-	background-color: $black;
-	@include transition(background-color .2s $easing);
-
-	&.btn_bordred {
-		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
-	}
-
-	&:hover {
-		background-color: darken($black, 7%);
-	}
+	@include module((
+		_color: #fff,
+		_background: $black
+	));
 }

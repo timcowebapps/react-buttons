@@ -28,4 +28,4 @@ export interface IButtonProps {
 	 * @memberof IButtonProps
 	 */
 	children?: React.ReactNode;
-}
+};

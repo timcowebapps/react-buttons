@@ -9,54 +9,81 @@ import { Classes } from 'timcowebapps-react-utils';
 /* Внутренние зависимости. */
 import { IButtonProps } from './buttonProps';
 
-const Button: React.StatelessComponent<IButtonProps> = (props: IButtonProps) => {
-	let htmlAttrs = function (properties: any): any {
-		let result: any = {}
-		if (properties.tag === "a") {
-			result.href = properties.to || "/";
-		}
-		else if (properties.tag === "button") {
-			result.type = properties.type || "button";
-		}
-
-		result.style = properties.style || null;
-
-		return result;
-	};
-
-	let renderLabel = function (): any {
-		if (props.schema.items) {
-			let label: any = undefined;
-
-			if (Array.isArray(props.schema.items)) {
-				label = _.filter(props.schema.items, { id: 'label' })[0];
-			}
-			else {
-				label = props.schema.items;
-			}
-
-			return React.DOM.span({ className: label.properties.classes }, label.default.text)
-		}
-		else return props.children;
+class Button extends React.Component<IButtonProps, any> {
+	public static displayName: string = 'button';
+	public static propTypes = {
+		onClick: PropTypes.func,
+		children: PropTypes.oneOfType([
+			PropTypes.arrayOf(PropTypes.element),
+			PropTypes.string
+		])
 	}
 
-	return React.createElement(
-		props.schema.properties.tag,
-		{
-			...htmlAttrs(props.schema.properties),
-			onClick: props.onClick,
-			className: Classes.combine(props.schema.properties.classes)
-		},
-		renderLabel()
-	);
-}
+	/**
+	 * Конструктор класса.
+	 * 
+	 * @class Button
+	 * @constructor
+	 * @param {IButtonProps} props Свойства компонента.
+	 */
+	public constructor(props?: IButtonProps) {
+		super(props);
+	}
 
-Button.propTypes = {
-	onClick: PropTypes.func,
-	children: PropTypes.oneOfType([
-		PropTypes.arrayOf(PropTypes.element),
-		PropTypes.string
-	])
+	/**
+	 * Отрисовывает текст.
+	 * 
+	 * @class Button
+	 * @method _renderLabel
+	 * @private
+	 */
+	private _renderLabel() {
+		if (this.props.schema.items) {
+			let label: any = undefined;
+
+			if (Array.isArray(this.props.schema.items)) {
+				label = _.filter(this.props.schema.items, { id: 'label' })[0];
+			}
+			else {
+				label = this.props.schema.items;
+			}
+
+			return React.createElement('span', { className: label.properties.classes }, label.default.text)
+		}
+		else return this.props.children;
+	}
+
+	/**
+	 * Отрисовывает компонент.
+	 * 
+	 * @class Button
+	 * @method render
+	 */
+	public render() {
+		let htmlAttrs = (properties: any) => {
+			let result: any = {}
+			if (properties.tag === "a") {
+				result.href = properties.to || "/";
+			}
+			else if (properties.tag === "button") {
+				result.type = properties.type || "button";
+			}
+	
+			result.style = properties.style || null;
+	
+			return result;
+		};
+
+		return React.createElement(
+			this.props.schema.properties.tag,
+			{
+				...htmlAttrs(this.props.schema.properties),
+				onClick: this.props.onClick,
+				className: Classes.combine(this.props.schema.properties.classes)
+			},
+			this._renderLabel()
+		);
+	}
 }
 
 export default Button;
