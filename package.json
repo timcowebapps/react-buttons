@@ -1,6 +1,6 @@
 {
 	"name": "timcowebapps-react-buttons",
-	"version": "0.1.2",
+	"version": "0.1.2-rc.1",
 	"description": "Микрокомпонент базовой кнопки.",
 	"author": "Victor Timoshin <victor-timoshin@hotmail.com>",
 	"license": "MIT",
