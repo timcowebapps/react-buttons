@@ -1,34 +1,15 @@
-$gray: #efefef;
-$gray-dark: #e2e2e2;
-$black: #39464e;
+$btn-name: 'btn' !default;
+$btn-hover: lighten 10% !default;
+$btn-easing: cubic-bezier(.162, .85, .45, 1) !default;
 
 /**
  * Палитра цветов.
  * @type Map
  */
-$global-palette: (
-	green-light: #8dca77,
-	green-medium: #70b159,
-	blue-light: #66addf,
-	blue-medium: #4b99d0,
-	yellow-light: #ffe55c,
-	yellow-medium: #ffdf38,
-	red-light: #e1746c,
-	red-medium: #d0554b,
-	orange-light: #f58058,
-	orange-medium: #f56332
+$btn-schemes: (
+	default: #7f8c8d,
+	success: #27ae60,
+	danger: #c0392b,
+	warning: #f1c40f,
+	info: #2980b9
 ) !default;
-
-.green { background: map-get($global-palette, green-medium); }
-.green:hover, .green:active { background: map-get($global-palette, green-light); }
-
-.blue { background: map-get($global-palette, blue-medium); }
-.blue:hover, .blue:active { background: map-get($global-palette, blue-light); }
-
-.red { background: map-get($global-palette, red-medium); }
-.red:hover, .red:active { background: map-get($global-palette, red-light); }
-
-.orange { background: map-get($global-palette, orange-medium); }
-.orange:hover, .orange:active { background: map-get($global-palette, orange-light); }
-
-$easing: cubic-bezier(.162, .85, .45, 1);

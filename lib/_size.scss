@@ -1,4 +1,6 @@
-.#{$btn-name} {
+@import '~timcowebapps-scss-dir/utils/_bem.scss';
+
+.btn {
 	@include modifier("lg") {
 		padding: 9px 12px;
 		font-size: 18px;

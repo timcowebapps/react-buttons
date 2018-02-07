@@ -1,0 +1,99 @@
+@import '~timcowebapps-scss-dir/utils/_bem.scss';
+
+@mixin btn_variant_module($options: ()) {
+	$configuration: map-merge((
+		_color: black,
+		_background: white,
+		_transition: background-color .2s $easing
+	), $options);
+
+	color: map-get($configuration, _color);
+	background-color: map-get($configuration, _background);
+	@include transition(map-get($configuration, _transition));
+
+	&:hover {
+		background-color: darken(map-get($configuration, _background), 7%);
+	}
+
+	&.btn_bordred {
+		@include box-shadow(inset 0 -2px 0 0 rgba(0, 0, 0, .1));
+	}
+
+	&.btn_rounded {
+		@include border-radius(1.875em/*30px*/);
+	}
+}
+
+.btn {
+	@include modifier("default") {
+		@include btn_variant_module((
+			_color: #666,
+			_background: $gray
+		));
+	}
+
+	@include modifier("primary") {
+		@include btn_variant_module((
+			_color: #fff,
+			_background: map-get($global-palette, blue-medium)
+		));
+	}
+
+	@include modifier("success") {
+		@include btn_variant_module((
+			_color: #fff,
+			_background: map-get($global-palette, green-medium)
+		));
+	}
+
+	@include modifier("info") {
+	}
+
+	@include modifier("warning") {
+		@include btn_variant_module((
+			_color: #043341,
+			_background: map-get($global-palette, yellow-medium)
+		));
+	}
+
+	@include modifier("danger") {
+		@include btn_variant_module((
+			_color: #fff,
+			_background: map-get($global-palette, red-medium)
+		));
+	}
+
+	@include modifier("inverse") {
+		@include btn_variant_module((
+			_color: #fff,
+			_background: $black
+		));
+	}
+}
+
+.btn_outline_default {
+	color: darken($gray-dark, 3%);
+	background-color: transparent;
+	border-color: $gray-dark;
+}
+
+.btn_outline_primary {
+	color: #666;
+	background: rgba(0, 0, 0, .2);
+	border: 0;
+
+	&:hover {
+		background-color: rgba(0, 0, 0, .3);
+	}
+
+	&:before {
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		bottom: 1px;
+		left: 1px;
+		content: '';
+		border-radius: 2px;
+		background: #fff;
+	}
+}

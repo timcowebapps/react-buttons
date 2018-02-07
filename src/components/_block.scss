@@ -1,4 +1,6 @@
-.btn_block {
-	display: block;
-	width: 100%;
+.#{$btn-name} {
+	@include modifier("block") {
+		display: block;
+		width: 100%;
+	}
 }

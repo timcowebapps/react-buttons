@@ -1,4 +1,6 @@
-## React-Buttons [![dependencies](https://david-dm.org/timcowebapps/react-buttons.svg)](https://david-dm.org/timcowebapps/react-buttons)
+## React-Buttons [![Discord](https://discordapp.com/api/guilds/402238411639095297/widget.png)](https://discord.gg/vCMcgwQ)
+
+[![dependencies](https://david-dm.org/timcowebapps/react-buttons.svg)](https://david-dm.org/timcowebapps/react-buttons)
 
 [![NPM](https://nodei.co/npm/timcowebapps-react-buttons.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/timcowebapps-react-buttons/)
 
@@ -17,8 +19,7 @@ $ npm i -S timcowebapps-react-buttons
 	// ...
 	resolve: {
 		alias: {
-			'dir': path.resolve(__dirname, 
-				'node_modules', 'timcogroup-rc-datadisplay', 'lib')
+			'timcowebapps-react-buttons-dir': path.resolve(__dirname, 'node_modules',	'timcowebapps-react-buttons', 'lib')
 		}
 	}
 	// ...
@@ -29,7 +30,7 @@ $ npm i -S timcowebapps-react-buttons
 
 ```jsx
 import Button from 'timcowebapps-react-buttons';
-const styles: any = require('dir/button.scss');
+const styles: any = require('timcowebapps-react-buttons-dir/button.scss');
 
 <Button schema={{
 	properties: {

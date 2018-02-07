@@ -1,19 +1,6 @@
-@mixin button_color($options: ()) {
-	$configuration: map-merge((
-		_color: #fff,
-		_background: #000
-	), $options);
+@import '~timcowebapps-scss-dir/utils/_bem.scss';
 
-	// Убедимся, что _color и _background являются цветом
-	@if type-of(map-get($configuration, _color)) != color or type-of(map-get($configuration, _background)) != color {
-		@warn "Either `#{_color}` or `#{_background}` is not a color for `button_color`";
-	}
-
-	color: map-get($configuration, _color);
-	background-color: map-get($configuration, _background);
-}
-
-.#{$btn-name} {
+.btn {
 	position: relative;
 	display: inline-block;
 	background-image: none;
@@ -27,7 +14,7 @@
 	@include box-sizing(border-box);
 	outline: none;
 
-	// Стили шрифта
+	/* Стили шрифта */
 	font-size: 16px;
 	font-weight: normal;
 	line-height: 24px;
