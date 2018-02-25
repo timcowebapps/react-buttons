@@ -4,29 +4,28 @@
 import * as _ from 'lodash';
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { Classes } from 'timcowebapps-react-utils';
+import { Classes, IJsonSchema, Schema } from 'timcowebapps-react-utils';
 
 /* Внутренние зависимости. */
-import { IButtonProps } from './buttonProps';
+import { ButtonProps } from './button-props';
 
-class Button extends React.Component<IButtonProps, any> {
-	public static displayName: string = 'button';
-	public static propTypes = {
-		onClick: PropTypes.func,
-		children: PropTypes.oneOfType([
-			PropTypes.arrayOf(PropTypes.element),
-			PropTypes.string
-		])
-	}
+/**
+ * Микрокомпонент кнопки.
+ */
+class Button extends React.Component<ButtonProps.IProps, any> {
+	public static displayName: string = 'Button';
+	public static propTypes: PropTypes.ValidationMap<ButtonProps.IProps> = ButtonProps.types;
+	public static defaultProps: ButtonProps.IProps = ButtonProps.defaults;
 
 	/**
 	 * Конструктор класса.
 	 * 
 	 * @class Button
+	 * @public
 	 * @constructor
-	 * @param {IButtonProps} props Свойства компонента.
+	 * @param {ButtonProps.IProps} props Свойства компонента.
 	 */
-	public constructor(props?: IButtonProps) {
+	public constructor(props?: ButtonProps.IProps) {
 		super(props);
 	}
 
@@ -34,54 +33,56 @@ class Button extends React.Component<IButtonProps, any> {
 	 * Отрисовывает текст.
 	 * 
 	 * @class Button
-	 * @method _renderLabel
 	 * @private
+	 * @method _renderLabel
 	 */
-	private _renderLabel() {
-		if (this.props.schema.items) {
-			let label: any = undefined;
-
-			if (Array.isArray(this.props.schema.items)) {
-				label = _.filter(this.props.schema.items, { id: 'label' })[0];
-			}
-			else {
-				label = this.props.schema.items;
-			}
-
-			return React.createElement('span', { className: label.properties.classes }, label.default.text)
+	private _renderLabel(item: IJsonSchema, pipeline: any, blockName: string): React.ReactNode {
+		if (item) {
+			return React.createElement('span', {
+				className: Classes.bem(pipeline, blockName, {
+					element: 'label',
+					modifiers: item.properties.classes.modifiers
+				})
+			}, item.properties.text)
+		} else {
+			return this.props.children;
 		}
-		else return this.props.children;
 	}
 
 	/**
 	 * Отрисовывает компонент.
 	 * 
 	 * @class Button
+	 * @public
 	 * @method render
 	 */
 	public render() {
-		let htmlAttrs = (properties: any) => {
-			let result: any = {}
-			if (properties.tag === "a") {
-				result.href = properties.to || "/";
+		const { properties, items } = this.props.schema;
+		const classesRootBlock = properties.classes.block;
+
+		let htmlAttrs = (props: any) => {
+			let attributes: any = {}
+			if (props.tag === "a") {
+				attributes.href = props.to || "/";
+			} else if (props.tag === "button") {
+				attributes.type = props.type || "button";
 			}
-			else if (properties.tag === "button") {
-				result.type = properties.type || "button";
-			}
-	
-			result.style = properties.style || null;
-	
-			return result;
+
+			attributes.style = props.style || null;
+
+			return attributes;
 		};
 
 		return React.createElement(
-			this.props.schema.properties.tag,
+			properties.tag,
 			{
-				...htmlAttrs(this.props.schema.properties),
+				...htmlAttrs(properties),
 				onClick: this.props.onClick,
-				className: Classes.combine(this.props.schema.properties.classes)
+				className: Classes.bem(properties.classes.pipeline, classesRootBlock, {
+					modifiers: properties.classes.modifiers
+				})
 			},
-			this._renderLabel()
+			this._renderLabel(Schema.getItemById(items, "label"), properties.classes.pipeline, classesRootBlock)
 		);
 	}
 }

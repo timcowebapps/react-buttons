@@ -9,7 +9,7 @@
 ### Установка
 
 ```console
-$ npm i -S timcowebapps-react-buttons
+$ npm i -S timcowebapps-react-buttons@latest
 ```
 
 ### Настройка webpack
@@ -19,7 +19,7 @@ $ npm i -S timcowebapps-react-buttons
 	// ...
 	resolve: {
 		alias: {
-			'timcowebapps-react-buttons-dir': path.resolve(__dirname, 'node_modules',	'timcowebapps-react-buttons', 'lib')
+			'dir': path.resolve(__dirname, 'node_modules', 'timcowebapps-react-buttons', 'lib')
 		}
 	}
 	// ...
@@ -30,12 +30,15 @@ $ npm i -S timcowebapps-react-buttons
 
 ```jsx
 import Button from 'timcowebapps-react-buttons';
-const styles: any = require('timcowebapps-react-buttons-dir/button.scss');
+const styles: any = require('dir/button.scss');
 
 <Button schema={{
 	properties: {
 		tag: "button",
-		classes: styles.btn
+		classes: {
+			pipeline: styles,
+			block: "btn"
+		}
 	}
 }}>Button content</Button>
 ```

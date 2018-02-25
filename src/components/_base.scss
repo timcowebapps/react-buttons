@@ -18,7 +18,8 @@
 	display: inline-block;
 	background-image: none;
 	border: 1px solid transparent;
-	@include border-radius(0.188em/*3px*/);
+	//@include border-radius(0.188em/*3px*/);
+	@include border-radius(0);
 	padding: 5px 12px;
 	min-width: 80px;
 	touch-action: manipulation;
@@ -28,6 +29,7 @@
 	outline: none;
 
 	// Стили шрифта
+	font-family: inherit; /*!< Необходимо наследовать значение свойства у родительского элемента */
 	font-size: 16px;
 	font-weight: normal;
 	line-height: 24px;
